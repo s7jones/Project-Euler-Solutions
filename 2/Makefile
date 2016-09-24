@@ -5,15 +5,10 @@ CC_FLAGS = -std=c++11
 SRC = $(wildcard *.cc)
 OBJ = $(SRC:.cc=.o)
 
-all: $(PROG) | deps
+all: $(PROG)
 
 $(PROG): $(OBJ)
 	g++ -o $@ $^
 
 $(OBJ): $(SRC)
-	g++ -c $(CC_FLAGS)  $<
-
-.PHONY: deps
-
-deps:
-	g++ -M $(SRC)
+	g++ -c $(CC_FLAGS) $<

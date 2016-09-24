@@ -1,5 +1,7 @@
 PROG = main.out
 
+CC_FLAGS = -std=c++11
+
 SRC = $(wildcard *.cc)
 OBJ = $(SRC:.cc=.o)
 
@@ -9,4 +11,4 @@ $(PROG): $(OBJ)
 	g++ -o $@ $^
 
 $(OBJ): $(SRC)
-	g++ -c $<
+	g++ -c $(CC_FLAGS)  $<
