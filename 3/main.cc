@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include "../Utils/utils.h"
 
 using namespace std;
 
@@ -15,17 +16,7 @@ int main()
 	vector<uint32_t> factors;
 	for (uint32_t ptntl_fctr = 3; ptntl_fctr <= root; ptntl_fctr = ptntl_fctr + 2)
 	{
-		uint32_t root_ptntl_fctr = floor(sqrt(ptntl_fctr));
-		bool prime = true;
-		for (uint32_t j = 2; j < root_ptntl_fctr; j++)
-		{
-			if (ptntl_fctr % j == 0)
-			{
-				prime = false;
-				break;
-			}
-		}
-		if (!prime)
+		if (!isPrime(ptntl_fctr))
 			continue;
 		if (number % ptntl_fctr == 0)
 			factors.push_back(ptntl_fctr);

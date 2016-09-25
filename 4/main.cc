@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <cmath>
 #include <algorithm>
+#include "../Utils/utils.h"
 
 using namespace std;
 
@@ -12,17 +11,6 @@ The largest palindrome made from the product of two 2-digit numbers is 9009 = 91
 
 Find the largest palindrome made from the product of two 3-digit numbers.
 */
-
-bool isPalindrome(int number)
-{
-	string str = to_string(number);
-	for (int i = 0; i < floor(str.length()/2); i++)
-	{
-		if (str[i] != str.end()[-i-1])
-			return false;
-	}
-	return true;
-}
 
 int main()
 {

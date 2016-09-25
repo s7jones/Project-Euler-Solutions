@@ -1,14 +1,10 @@
-PROG = main.out
+CPPFLAGS = -std=c++11 -MD -MP 
 
-CC_FLAGS = -std=c++11
+SRC = $(wildcard *.cc) $(wildcard ../Utils/*.cc)
 
-SRC = $(wildcard *.cc)
-OBJ = $(SRC:.cc=.o)
+all: main.out
 
-all: $(PROG)
+main.out: $(SRC:%.cc=%.o)
+	g++ $(CPPFLAGS) -o $@ $^
 
-$(PROG): $(OBJ)
-	g++ -o $@ $^
-
-$(OBJ): $(SRC)
-	g++ -c $(CC_FLAGS)  $<
+-include $(SRC:%.cc=%.d)
